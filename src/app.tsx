@@ -22,7 +22,7 @@ export function App() {
         <h1 className='text-3xl font-light tracking-tight text-gray-900'>
           Coolify
         </h1>
-        <p className='text-red-200'>Update automatically</p>
+        <p className='text-blue-200'>Update automatically</p>
       </header>
 
       {/* Messages */}
