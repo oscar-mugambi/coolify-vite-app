@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prebuild": "echo '--- Checking environment variable ---' && echo 'VITE_MY_TEST_VARIABLE is: $VITE_MY_TEST_VARIABLE'",
     "lint": "eslint .",
     "preview": "vite preview"
   },
