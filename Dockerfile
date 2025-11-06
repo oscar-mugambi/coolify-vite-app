@@ -4,9 +4,12 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 
+
+
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
+RUN echo "VITE_API_URL found: $VITE_API_URL" || (echo "VITE_API_URL is NOT SET. Failing build." && exit 1)
 RUN pnpm run build
 
 
