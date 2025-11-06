@@ -1,13 +1,10 @@
 import axios from 'axios';
 
-if (!import.meta.env.VITE_API_URL) {
-  throw new Error(
-    'FATAL ERROR: VITE_API_URL is not defined. The application cannot be built.',
-  );
-}
+console.log('VITE_API_URL from import.meta.env:', import.meta.env.VITE_API_URL);
 
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL:
+    import.meta.env.VITE_API_URL || 'https://node.cosmicpenguin.xyz/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },
