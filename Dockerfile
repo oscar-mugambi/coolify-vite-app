@@ -9,7 +9,13 @@ ARG VITE_API_URL
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
-RUN echo "VITE_API_URL found: $VITE_API_URL" || (echo "VITE_API_URL is NOT SET. Failing build." && exit 1)
+
+RUN if [ -z "$VITE_API_URL" ]; then \
+    echo "FATAL: VITE_API_URL is not set. Failing build." && exit 1; \
+    else \
+    echo "Build-time VITE_API_URL found: $VITE_API_URL"; \
+    fi
+
 RUN pnpm run build
 
 
